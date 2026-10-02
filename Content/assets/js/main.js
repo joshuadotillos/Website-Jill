@@ -50,40 +50,6 @@
     }
 
     /**
-     * Service Tabs
-     */
-    function initServiceTabs() {
-        const tabs = document.querySelectorAll('input[name="svc"]');
-        const tabLabels = document.querySelectorAll(".tab-label");
-        const tabPanels = document.querySelectorAll(".tab-panel");
-
-        if (!tabs.length || !tabLabels.length || !tabPanels.length) {
-            return;
-        }
-
-        function updateTabs() {
-            tabs.forEach((tab, index) => {
-                const panel = document.getElementById(`panel${index + 1}`);
-                const label = document.querySelector(`.tab-label[for="${tab.id}"]`);
-
-                if (tab.checked) {
-                    panel?.classList.add("active");
-                    label?.classList.add("active");
-                } else {
-                    panel?.classList.remove("active");
-                    label?.classList.remove("active");
-                }
-            });
-        }
-
-        tabs.forEach((tab) => {
-            tab.addEventListener("change", updateTabs);
-        });
-
-        updateTabs();
-    }
-
-    /**
      * Init GLightbox
      */
     function initGLightbox() {
@@ -103,7 +69,6 @@
     window.addEventListener("load", function () {
         initAOS();
         initSwiper();
-        initServiceTabs();
         initGLightbox();
     });
 })();
